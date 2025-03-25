@@ -1,0 +1,30 @@
+package Arrays;
+
+import java.util.Scanner;
+
+public class MinimumSwap {
+    public static void main(String[] args) {
+        Scanner sc=new Scanner(System.in);
+        int a=sc.nextInt(),swap=0;
+        int arr[]=new int[a];
+        int left=0,right=a-1;
+        for (int i = 0; i < a; i++) {
+            arr[i]=sc.nextInt();
+        }
+        int k=sc.nextInt();
+        while(left<right){
+            while(arr[left]<k)
+                left++;
+            while(arr[right]>k)
+                right--;
+            if(left<right){
+                int temp=arr[right];
+                arr[right]=arr[left];
+                arr[left]=temp;
+                swap++;}
+            left++;
+            right--;
+        }
+        System.out.println(swap);
+    }
+}
